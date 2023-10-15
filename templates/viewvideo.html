@@ -1,0 +1,12 @@
+{% include 'studentheader.html' %}
+<section id="hero">
+  <div class="hero-container" >
+<h3>View Class Video</h3>
+{% for row in data['res'] %}
+<video width="320" height="240" controls>
+    <source src="/{{row['files']}}" type="video/mp4">
+  </video>
+  </div>
+  </section>
+{% endfor %}
+{% include 'footer.html' %}

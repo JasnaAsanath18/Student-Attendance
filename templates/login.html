@@ -1,0 +1,40 @@
+{% include 'publicheader.html' %}
+
+<style>
+    .a
+    {
+        background-color: rgb(40, 35, 35);
+        margin-top: 15px;
+    }
+    .a:hover{
+        background-color: #e43c5c;
+    }
+    th
+    {
+        text-align: left;
+    }
+</style>
+<section id="hero">
+<div class="hero-container">
+    <h2><strong>Login Form</strong></h2>
+<form method="post">
+    <table>
+        <tr>
+            <th>User Name :</th>
+            <td><input type="text" name="uname" class="form-control" required></td>
+        </tr>
+        <tr>
+            <th>Password :</th>
+            <td><input type="password" name="password" class="form-control" required></td> 
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" name="login" value="Login" class="btn-get-started a"></td>
+        </tr>
+    </table>
+</form>
+
+</div>
+</section>
+
+<img src="C:\Users\jessi\Pictures\kottapuram.jpg">
+{% include 'footer.html' %}

@@ -1,0 +1,101 @@
+{% include 'teacherheader.html' %}
+
+
+
+<style>
+  .a
+  {
+      background-color: rgb(40, 35, 35);
+      margin-top: 15px;
+  }
+  .a:hover{
+      background-color: #e43c5c;
+  }
+  th
+  {
+      text-align: left;
+  }
+  .tbl
+  {
+      border-radius: 5px;
+      width: 100%;
+      border: 1px solid white;
+      border-collapse: collapse;
+      color: rgb(22, 19, 19);
+      background-color: rgb(205, 197, 197);
+      padding: 20px;
+      padding-top: 10px;
+     
+  }
+  .tr
+  {
+      border-bottom: 2px solid white;
+      line-height: 40px;
+      text-align: left;
+  }
+
+</style>
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <h3> <strong>Student Attendance</strong> </h3>
+      
+      <a href="#about" class="btn-get-started scrollto">parents</a>
+    </div>
+  </section><!-- End Hero -->
+      
+<main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h1 style="color:black;">View Parents</h1>
+          <!-- <h3>Learn More <span>About Us</span></h3>
+          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p> -->
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-12">
+        
+
+            <table class="tbl">
+                <tr class="tr">
+                    <th>Sl</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Place</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+            
+                </tr>
+                {% for row in data['std'] %}
+                <tr class="tr">
+                    <td>{{loop.index}}</td>
+                    <td>{{row['p_fname']}}</td>
+                    <td>{{row['p_lname']}}</td>
+                    <td>{{row['p_place']}}</td>
+                    <td>{{row['p_phone']}}</td>
+                    <td>{{row['p_email']}}</td>
+            
+                    <td><a href="chat_parent?id={{row['login_id']}}">CHAT</a></td>
+                    <!-- <td><a href="?action=delete&id={{row['login_id']}}">delete</a></td> -->
+            
+                </tr>
+                {% endfor %}
+            </table>
+
+
+          </div>
+       
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+
+</main>
+
+{% include 'footer.html' %}

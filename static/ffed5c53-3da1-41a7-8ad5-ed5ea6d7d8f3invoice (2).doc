@@ -1,0 +1,132 @@
+<html><head>
+    <title>Invoice</title>
+    <style>
+      /* Add any necessary styles for the invoice page here */
+      table,th,td{
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 10px;
+      }
+    </style>
+        <script>
+          function downloadAsDoc() {
+            // Send a GET request to the server to get the HTML content
+            fetch('/get_invoice')
+              .then(response => response.text())
+              .then(html => {
+                // Send the HTML content to the server to convert to a Word document
+                fetch('/convert_to_docx', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({html: html})
+                })
+                .then(response => response.blob())
+                .then(blob => {
+                  // Create a link to download the Word document
+                  const url = window.URL.createObjectURL(new Blob([blob]));
+                  const link = document.createElement('a');
+                  link.href = url;
+                  link.setAttribute('download', 'invoice.docx');
+                  document.body.appendChild(link);
+                  link.click();
+                  link.parentNode.removeChild(link);
+                })
+                .catch(error => console.error(error));
+              })
+              .catch(error => console.error(error));
+          }
+    
+          function downloadAsPDF() {
+            // Send a GET request to the server to get the HTML content
+            fetch('/get_invoice')
+              .then(response => response.text())
+              .then(html => {
+                // Send the HTML content to the server to convert to a PDF document
+                fetch('/convert_to_pdf', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({html: html})
+                })
+                .then(response => response.blob())
+                .then(blob => {
+                  // Create a link to download the PDF document
+                  const url = window.URL.createObjectURL(new Blob([blob]));
+                  const link = document.createElement('a');
+                  link.href = url;
+                  link.setAttribute('download', 'invoice.pdf');
+                  document.body.appendChild(link);
+                  link.click();
+                  link.parentNode.removeChild(link);
+                })
+                .catch(error => console.error(error));
+              })
+              .catch(error => console.error(error));
+          }
+        </script>
+  </head>
+  <body>
+    <center>
+      <div style="border:1px solid black; width: 600px;border-radius: 5px;">
+    <header>
+      
+      
+      <h1>Invoice</h1>
+      <p style="font-size: 25px;font-weight: bold;">Online car rental</p>
+    </header>
+    <main>
+      <section>
+        
+        <p style="font-size: 20px;font-style: bold;">Bill To:jifi kj</p>
+        
+      </section>
+      <section>
+        <h2>Details:</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Vehicle</th>
+              <th>Number</th>
+              <th>Rent per Hour</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>qwe</td>
+              <td>qwq</td>
+              <td>1234</td>
+              <td>236928</td>
+            </tr>
+            
+            <tr>
+              <td colspan="3">Subtotal:</td>
+              <td>Rs.236928</td>
+            </tr>
+      
+          </tbody>
+        </table>
+        
+      </section>
+    </main>
+    <footer>
+      <button onclick="downloadDocument()" style="margin: 20px;">Download Invoice</button>
+    </footer>
+  </div>
+  </center>
+  <script>
+    function downloadDocument() {
+      const filename = 'invoice.doc';
+      const contentType = 'application/msword';
+      const a = document.createElement('a');
+      const file = new Blob([document.documentElement.outerHTML], { type: contentType });
+      a.href = URL.createObjectURL(file);
+      a.download = filename;
+      a.click();
+    }
+  </script>
+  
+</body></html>

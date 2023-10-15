@@ -1,0 +1,112 @@
+{% include 'teacherheader.html' %}
+<style>
+    .a
+    {
+        background-color: rgb(40, 35, 35);
+        margin-top: 15px;
+    }
+    .a:hover{
+        background-color: #e43c5c;
+    }
+    th
+    {
+        text-align: left;
+    }
+    .tbl
+    {
+        border-radius: 5px;
+        width: 70%;
+        border: 1px solid white;
+        border-collapse: collapse;
+        color: rgb(22, 19, 19);
+        background-color: rgb(205, 197, 197);
+        padding-top: 10px;
+       
+    }
+    .tr
+    {
+        border-bottom: 2px solid white;
+        line-height: 40px;
+        text-align: left;
+    }
+
+</style>
+<section id="hero">
+    <div class="hero-container" >
+<h3>Add Study Material</h3>
+<form method="post" enctype="multipart/form-data">
+<table>
+    <tr>
+        <th>Subject</th>
+        <td><select name="sub" id="" name="sub" class="form-control" required>
+            {% for row in data['sbj'] %}
+            <option value="{{data['sbj'][0]['subject_id']}}">{{data['sbj'][0]['subject']}}</option>
+        {%endfor%}
+        </select></td>
+    </tr>
+    
+    <tr>
+        <th>Title :</th>
+        <td><input type="text" name="title" class="form-control" required></td>
+    </tr>
+    <tr>
+        <th>Details :</th>
+        <td><input type="text" name="det" class="form-control" required></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="submit" value="Submit" name="submit" class="a btn-get-started"></td>
+    </tr>
+</table>
+
+
+</form>
+</div>
+</section><!-- End Hero -->
+
+
+<main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h1 style="color:black;">View Study Material</h1>
+          <!-- <h3>Learn More <span>About Us</span></h3>
+          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p> -->
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-12">
+<center>
+<table class="tbl table">
+    <tr class="tr">
+        <th>Sl. no</th>
+        <th>Subject</th>
+        <th>Title</th>
+        <th>Details</th>
+    </tr>
+    {% for row in data['res'] %}
+    <tr class="tr">
+        <td>{{loop.index}}</td>
+        <td>{{row['subject']}}</td>
+        <td>{{row['title']}}</td>
+        <td>{{row['details']}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</center>
+</div>
+       
+</div>
+
+</div>
+</section><!-- End About Section -->
+
+
+</main>
+
+
+{% include 'footer.html' %}

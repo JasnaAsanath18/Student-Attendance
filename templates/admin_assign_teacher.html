@@ -1,0 +1,67 @@
+
+
+{% include 'adminheader.html' %}
+
+<style>
+    .a
+    {
+        background-color: rgb(40, 35, 35);
+        margin-top: 0px;
+
+    }
+    .a:hover{
+        background-color: #e43c5c;
+    }
+    th
+    {
+        text-align: left;
+    }
+    .tbl
+    {
+        border-radius: 5px;
+        width: 100%;
+        border: 1px solid white;
+        border-collapse: collapse;
+        color: rgb(22, 19, 19);
+        background-color: rgb(205, 197, 197);
+        padding-top: 10px;
+       
+    }
+    .tr
+    {
+        border-bottom: 2px solid white;
+        line-height: 40px;
+        text-align: left;
+    }
+
+</style>
+<section id="hero">
+    <div class="hero-container pt-5" >
+        <h1>Assign Teacher</h1>
+<form method="post">
+    <table class="table" style="width: 500px">
+        <tr>
+            <th>Assign</th>
+            <td style="color: black">
+                <select name="sub" id="">
+                    {% for row in data['res'] %}
+                    <option value="{{row['subject_id']}}">{{row['subject']}}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td   align="center" colspan="2"><input type="submit" class="btn btn-success" name="submit" value="submit"></td>
+        </tr>
+    </table>
+</form>
+
+
+
+
+
+{% include 'footer.html' %}
+
+
+
+

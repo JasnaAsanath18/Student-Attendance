@@ -1,0 +1,52 @@
+{% include 'teacherheader.html' %}
+
+<style>
+    .a
+    {
+        background-color: rgb(40, 35, 35);
+        margin-top: 15px;
+    }
+    .a:hover{
+        background-color: #e43c5c;
+    }
+    th
+    {
+        text-align: left;
+    }
+    .tbl
+    {
+        border-radius: 5px;
+        width: 70%;
+        border: 1px solid white;
+        border-collapse: collapse;
+        color: rgb(22, 19, 19);
+        background-color: rgb(205, 197, 197);
+        padding-top: 10px;
+       
+    }
+    .tr
+    {
+        border-bottom: 2px solid white;
+        line-height: 40px;
+        text-align: left;
+    }
+
+</style>
+<section id="hero">
+    <div class="hero-container" >
+        <h3><b>View Syllabus</b></h3>
+<table class="tbl">
+    <tr class="tr">
+       
+    </tr>
+    {% for row in data['rem'] %}
+    <tr class="tr">
+    
+    <td>{{row['details']}}</td>
+    <td><img src="/{{row['files']}}" alt="" width="100" height="100"></td>
+
+    </tr>
+    
+    {% endfor %}
+</table>
+{% include 'footer.html' %}

@@ -1,0 +1,66 @@
+{% include 'studentheader.html' %}
+<style>
+    .tbl
+    {
+        border-radius: 5px;
+        width: 70%;
+        border: 1px solid white;
+        border-collapse: collapse;
+        color: rgb(22, 19, 19);
+        background-color: rgb(205, 197, 197);
+        padding-top: 10px;
+       
+    }
+    .tr
+    {
+        border-bottom: 2px solid white;
+        line-height: 40px;
+        text-align: left;
+    }
+    .a
+    {
+        background-color: rgb(40, 35, 35);
+        margin-top: 15px;
+    }
+    .a:hover{
+        background-color: #e43c5c;
+    }
+    
+    </style>
+    <section id="hero">
+        <div class="hero-container" >
+            <h3>Send Complaintr</h3>
+
+<form action="" method="post">
+    <table>
+        <tr>
+            <th>Complaint :</th>
+            <td><input type="text" name="complaint" class="form-control"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="submit" value="submit" class="a btn-get-started"></td>
+        </tr>
+    </table>
+</form>
+<br><br>
+<table class="tbl">
+    <tr class="tr">
+        <th>Sl.</th>
+        <th>Complaint</th>
+        <th>Reply</th>
+        <th>Date</th>
+    </tr>
+    {% for row in data['res']%}
+    <tr class="tr">
+        <td>{{loop.index}}</td>
+        <td>{{row['complaint']}}</td>
+        <td>{{row['reply']}}</td>
+        <td>{{row['date']}}</td>
+    </tr>
+
+    {% endfor %}
+</table>
+
+
+{% include 'footer.html' %}

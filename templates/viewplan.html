@@ -1,0 +1,58 @@
+{% include 'studentheader.html' %}
+
+
+<style>
+    .a
+    {
+        background-color: rgb(40, 35, 35);
+        margin-top: 15px;
+    }
+    .a:hover{
+        background-color: #e43c5c;
+    }
+    th
+    {
+        text-align: left;
+    }
+    .tbl
+    {
+        border-radius: 5px;
+        width: 450px;
+        border: 1px solid white;
+        border-collapse: collapse;
+        color: rgb(22, 19, 19);
+        background-color: rgb(205, 197, 197);
+        padding-top: 10px;
+       
+    }
+    .tr
+    {
+        border-bottom: 2px solid white;
+        line-height: 40px;
+        text-align: left;
+    }
+
+</style>
+<section id="hero">
+    <div class="hero-container" >
+<h3>View Plan</h3>
+<form method="post">
+<table class="tbl">
+    <tr class="tr">
+        <th>Sl.</th>
+        <th>Plan</th>
+        <th>Rate</th>
+    </tr>
+    {% for row in data['res'] %}
+    <tr class="tr">
+    <td>{{loop.index}}</td>
+    <td>{{row['plan']}}</td>
+    <td>{{row['rate']}}</td>
+    <td><a href="?action=subscribe&id={{row['plan_id']}}">Subscribe</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</form>
+</div>
+</section>
+{% include 'footer.html' %}

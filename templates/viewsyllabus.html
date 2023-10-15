@@ -1,0 +1,42 @@
+{% include 'studentheader.html' %}
+<style>
+.tbl
+{
+    border-radius: 5px;
+    width: 550px;
+    border: 1px solid white;
+    border-collapse: collapse;
+    color: rgb(22, 19, 19);
+    background-color: rgb(205, 197, 197);
+    padding-top: 10px;
+   
+}
+.tr
+{
+    border-bottom: 2px solid white;
+    line-height: 40px;
+    text-align: left;
+}
+
+</style>
+<section id="hero">
+    <div class="hero-container" >
+<h3>View Syllabus</h3>
+<table class="tbl"> 
+    <tr class="tr">
+        <th>Details</th>
+        <th>Files</th>
+    </tr>
+    {% for row in data['rem'] %}
+    <tr class="tr">
+    
+    <td>{{row['details']}}</td>
+    <td><img src="/{{row['files']}}" alt="" width="100" height="100"></td>
+
+    </tr>
+    
+    {% endfor %}
+</table>
+</div>
+</section>
+{% include 'footer.html' %}

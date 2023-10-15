@@ -1,0 +1,70 @@
+{% include 'teacherheader.html' %}
+
+
+<style>
+    .a
+    {
+        background-color: rgb(40, 35, 35);
+        margin-top: 15px;
+    }
+    .a:hover{
+        background-color: #e43c5c;
+    }
+    th
+    {
+        text-align: left;
+    }
+    .tbl
+    {
+        border-radius: 5px;
+        width: 70%;
+        border: 1px solid white;
+        border-collapse: collapse;
+        color: rgb(22, 19, 19);
+        background-color: rgb(205, 197, 197);
+        padding-top: 10px;
+       
+    }
+    .tr
+    {
+        border-bottom: 2px solid white;
+        line-height: 40px;
+        text-align: left;
+    }
+
+</style>
+<section id="hero">
+    <div class="hero-container" >
+{% if data['check']==0 %}
+<h3>Add video</h3>
+<form enctype="multipart/form-data" method="post">
+<table>
+    <tr>
+        <th>Add video :</th>
+        <td><input type="file" name="video" class="form-control"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="submit" name="submit" value="Submit" class="a btn-get-started"></td>
+    </tr>
+</table>
+</form>
+
+{% else %}
+<h3>View subject</h3>
+<table class="tbl">
+    <tr class="tr">
+        <th>Sl.</th>
+        <th>subject</th>
+    </tr>
+    {% for row in data['res'] %}
+    <tr class="tr">
+        <td>{{loop.index}}</td>
+        <td>{{row['subject']}}</td>
+        <!-- <td><a href="teacher_viewsyllabus?id={{row['subject_id']}}">View Syllabus</a></td>
+        <td><a href="?action=addvideo&id={{row['subject_id']}}">Add Class Video</a></td> -->
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% include 'footer.html' %}

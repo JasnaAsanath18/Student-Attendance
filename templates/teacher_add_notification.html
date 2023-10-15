@@ -1,0 +1,61 @@
+{% include 'teacherheader.html' %}
+
+
+<style>
+    .a
+    {
+        background-color: rgb(40, 35, 35);
+        margin-top: 15px;
+    }
+    .a:hover{
+        background-color: #e43c5c;
+    }
+    th
+    {
+        text-align: left;
+    }
+    .tbl
+    {
+        border-radius: 5px;
+        width: 100%;
+        border: 1px solid white;
+        border-collapse: collapse;
+        color: rgb(22, 19, 19);
+        background-color: rgb(205, 197, 197);
+        padding-top: 10px;
+       
+    }
+    .tr
+    {
+        border-bottom: 2px solid white;
+        line-height: 40px;
+        text-align: left;
+    }
+
+</style>
+<section id="hero">
+    <div class="hero-container pt-5" >
+        <h3><b>Manage Notification</b></h3>
+<form method="post" enctype="multipart/form-data">
+ 
+    <table>
+        <tr>
+            <th>Notification</th>
+            <td><textarea name="notification" id="" class="form-control" required></textarea></td>
+        </tr>
+        
+        <tr>
+            <td colspan="2"> <input type="submit" name="submit" value="Click" class="a btn-get-started"></td>
+        </tr>
+    </table>
+ 
+</form>
+<br><br>
+
+</div>
+</section>
+
+
+
+
+{% include 'footer.html' %}

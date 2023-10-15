@@ -1,0 +1,59 @@
+{% include 'publicheader.html' %}
+
+<style>
+    .a
+    {
+        background-color: rgb(40, 35, 35);
+        margin-top: 15px;
+    }
+    .a:hover{
+        background-color: #e43c5c;
+    }
+    th
+    {
+        text-align: left;
+    }
+</style>
+<section id="hero">
+    <div class="hero-container">
+        <h2><strong>Registration Form</strong></h2>
+<form method="post">
+<table>
+    <tr>
+        <th>First Name :</th>
+        <td><input type="text" name="fname" class="form-control" required></td>
+    </tr>
+    <tr>
+        <th>Last Name :</th>
+        <td><input type="text" name="lname" class="form-control" required></td>
+    </tr>
+    <tr>
+        <th>User Name :</th>
+        <td><input type="text" name="uname" class="form-control" required></td>
+    </tr>
+    <tr>
+        <th>Password :</th>
+        <td><input type="password" name="password" class="form-control" required></td>
+    </tr>
+    <tr>
+        <th>Place :</th>
+        <td><input type="text" name="place" class="form-control" required></td>
+    </tr>
+    <tr>
+        <th>Phone :</th>
+        <td><input type="text" pattern="[0-9]{10}" class="form-control" name="phone" required></td>
+    </tr>
+    <tr>
+        <th>Email :</th>
+        <td><input type="email" name="email" class="form-control" required></td>
+    </tr>
+    <tr>
+        <td colspan="2"> <input type="submit" name="register" value="Click" class="a btn-get-started"></td>
+    </tr>
+</table>
+
+</form>
+</div>
+</section>
+
+{% include 'footer.html' %}

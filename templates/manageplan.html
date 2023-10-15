@@ -1,0 +1,42 @@
+{% include 'adminheader.html' %}
+
+
+<style>
+    .a
+    {
+        background-color: rgb(40, 35, 35);
+        margin-top: 15px;
+    }
+    .a:hover{
+        background-color: #e43c5c;
+    }
+    th
+    {
+        text-align: left;
+    }
+ 
+
+</style>
+<section id="hero">
+    <div class="hero-container" style="margin-top: -4em;">
+        <h3><b>Manage Plan</b></h3>
+<br>
+
+<form method="post">
+    <table>
+        <tr>
+            <th>Plan : </th>
+            <td><input type="text" name="plan" class="form-control"></td>
+        </tr>
+        <tr>
+            <th>Rate : </th>
+            <td><input type="text" name="rate" class="form-control"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="submit" value="submit" class="a btn-get-started"></td>
+        </tr>
+    </table>
+</form>
+
+{% include 'footer.html' %}

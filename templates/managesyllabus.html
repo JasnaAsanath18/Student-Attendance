@@ -1,0 +1,66 @@
+{% include 'adminheader.html' %}
+
+
+<style>
+    .a
+    {
+        background-color: rgb(40, 35, 35);
+        margin-top: 15px;
+    }
+    .a:hover{
+        background-color: #e43c5c;
+    }
+    th
+    {
+        text-align: left;
+    }
+    .tbl
+    {
+        border-radius: 5px;
+        width: 100%;
+        border: 1px solid white;
+        border-collapse: collapse;
+        color: rgb(22, 19, 19);
+        background-color: rgb(205, 197, 197);
+        padding-top: 10px;
+       
+    }
+    .tr
+    {
+        border-bottom: 2px solid white;
+        line-height: 40px;
+        text-align: left;
+    }
+
+</style>
+<section id="hero">
+    <div class="hero-container ">
+        <h3><b>Manage Syllabus</b></h3>
+
+<form method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <th>Subject : </th>
+            <td><select name="subject" class="form-control">
+                {% for row in data['sbj'] %}
+                <option value="{{row['subject_id']}}">{{row['subject']}}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+        <tr>
+            <th>Details : </th>
+            <td><input type="text" name="details" class="form-control"></td>
+        </tr>
+        <tr>
+            <th>Files : </th>
+            <td><input type="file" name="file" class="form-control"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="submit" name="submit" class="a btn-get-started"></td>
+        </tr>
+    </table>
+</form>
+
+
+{% include 'footer.html' %}

@@ -1,0 +1,91 @@
+{% include 'staffheader.html' %}
+
+
+<style>
+    .a
+    {
+        background-color: rgb(40, 35, 35);
+        margin-top: 15px;
+    }
+    .a:hover{
+        background-color: #e43c5c;
+    }
+    th
+    {
+        text-align: left;
+    }
+ 
+
+</style>
+<section id="hero">
+    <div class="hero-container" style="margin-top: -4em;">
+        <h3><b>Manage Fee</b></h3>
+<br>
+
+<form method="post">
+    {% if data['res'] %}
+
+    <table>
+        <tr>
+            <th>Fee : </th>
+            <td><input type="text"required name="fee" class="form-control" value="{{data['res'][0]['fee']}}"></td>
+        </tr>
+        <tr>
+            <th>Amount : </th>
+            <td><input type="text"required name="amt" class="form-control"  value="{{data['res'][0]['amount']}}" pattern="[0-9]+$"></td>
+        </tr>
+        <tr>
+            <th>Last Date : </th>
+            <td><input type="date" required name="date" class="form-control"  value="{{data['res'][0]['date']}}"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="edit" value="Update" class="a btn-get-startded"></td>
+        </tr>
+    </table>
+
+{% else %}
+    <table>
+        <tr>
+            <th>Fee : </th>
+            <td><input type="text" name="fee" class="form-control" required></td>
+        </tr>
+        <tr>
+            <th>Amount : </th>
+            <td><input type="text" name="amt" class="form-control"required pattern="[0-9]+$"></td>
+        </tr>
+        <tr>
+            <th>Last Date : </th>
+            <td><input type="date" name="date" class="form-control"required></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="submit" value="submit" class="a btn-get-started"></td>
+        </tr>
+    </table>
+</form>
+{% endif %}
+
+<br><br><br><br><br>
+<table class="tbl">
+    <tr class="tr">
+        <th>Sl.</th>
+        <th>Fee</th>
+        <th>Amount</th>
+        <th>Date</th>
+    </tr>
+    {% for row in data['fee'] %}
+    <tr class="tr">
+        <td>{{loop.index}}</td>
+        <td>{{row['fee']}}</td>
+        <td>{{row['amount']}}</td>
+        <td>{{row['date']}}</td>
+        <td><a href="?action=update&id={{row['fee_id']}}">update</a></td>
+        <td><a href="?action=delete&id={{row['fee_id']}}">delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+</section>
+
+{% include 'footer.html' %}

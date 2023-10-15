@@ -1,0 +1,57 @@
+{% include 'staffheader.html' %}
+
+
+<style>
+    .a
+    {
+        background-color: rgb(40, 35, 35);
+        margin-top: 15px;
+    }
+    .a:hover{
+        background-color: #e43c5c;
+    }
+    th
+    {
+        text-align: left;
+    }
+ 
+
+</style>
+<section id="hero">
+    <div class="hero-container" style="margin-top: -4em;">
+        <h3><b>Manage Fee</b></h3>
+<br>
+
+<form method="post">
+   
+    <table>
+        <tr>
+            <th>Parent : </th>
+            <td><select name="pid" id="">
+{% for i in data['parent']%}
+<option value="{{i['parent_id']}}">{{i['p_fname']}} {{i['p_lname']}}</option>
+
+{% endfor %}
+
+            </select></td>
+        </tr>
+        <tr>
+            <th>Notification : </th>
+            <td><input type="text" name="noti" class="form-control" ></td>
+        </tr>
+        
+        <tr>
+            <td></td>
+            <td><input type="submit" name="submit" value="submit" class="a btn-get-started"></td>
+        </tr>
+    </table>
+</form>
+
+
+<br><br><br><br><br>
+
+</div>
+</section>
+
+
+{% include 'footer.html' %}
